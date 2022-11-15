@@ -2,7 +2,12 @@
 
 name: "Centralized Code Scanning"
 
-on: workflow_call
+on: 
+  workflow_call:
+    inputs:
+        config-path:
+          required: true
+          type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 # jobs:
@@ -37,7 +42,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'go', 'python' ]
+        language: ${{ toJSON(inputs.config-path) }}
         # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
         # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
 
