@@ -16,7 +16,7 @@ on:
 jobs:
   # Automatically run TFSec 
   tfsec-scan:
-    name: Run tfsec sarif report
+    name: TFSec Scan
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -39,7 +39,7 @@ jobs:
   
   # Run CodeQL Scan        
   codeql-scan:
-    name: Analyze
+    name: CodeQL Scan
     runs-on: ubuntu-latest
     permissions:
       actions: read
